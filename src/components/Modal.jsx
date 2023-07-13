@@ -11,7 +11,7 @@ const BG = styled.div`
   width: 100%;
   height: 100vh;
   background: #ffffff58;
-  position: absolute;
+  position: fixed;
   z-index: 20;
 `;
 
@@ -22,7 +22,7 @@ const Container = styled.div`
   overflow: hidden;
   box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.5);
   z-index: 30;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

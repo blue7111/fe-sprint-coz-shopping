@@ -39,14 +39,19 @@ const Img = styled.img`
 `;
 
 export default function FilterTab() {
-  const curTab = useSelector((state) => state.CurFilter.value.Products);
   const curPage = useSelector((state) => state.CurFilter.value.CurPage);
+  const curTab = useSelector((state) =>
+    curPage === "Products"
+      ? state.CurFilter.value.Products
+      : state.CurFilter.value.Bookmark
+  );
   const dispatch = useDispatch();
 
   const updateCurTab = (input) => {
     if (curPage === "Products") {
       dispatch(updateProductsCurFilter(input));
-    } else if (curPage === "Bookmark") {
+    }
+    if (curPage === "Bookmark") {
       dispatch(updateBookmarkCurFilter(input));
     }
   };

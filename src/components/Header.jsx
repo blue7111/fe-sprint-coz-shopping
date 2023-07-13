@@ -14,6 +14,7 @@ const HeaderContainer = styled.header`
   position: fixed;
   box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  background: #fff;
 `;
 
 export default function Header() {
