@@ -12,14 +12,20 @@ const H2 = styled.h2`
 `;
 
 const Section = styled.section`
-  display: "flex";
-  margin: auto;
-  justify-content: "center";
-  align-items: "center";
+  display: flex;
+  flex-direction: column;
   margin-top: 12px;
   margin-left: 76px;
   margin-right: 76px;
 `;
+
+const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+`;
+
 export default function Main() {
   const isLoding = useSelector((state) => state.Loding.value);
   const AllProducts = useSelector((state) => state.AllProducts.value);
@@ -31,36 +37,29 @@ export default function Main() {
         <>
           <Section>
             <H2>상품 리스트</H2>
-            <div
-              style={{
-                display: "flex",
-                gap: 24,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Div>
               <Card item={AllProducts.find((el) => el.type === "Product")} />
               <Card item={AllProducts.find((el) => el.type === "Category")} />
               <Card item={AllProducts.find((el) => el.type === "Exhibition")} />
               <Card item={AllProducts.find((el) => el.type === "Brand")} />
-            </div>
+            </Div>
           </Section>
           <Section>
             <H2>북마크 리스트</H2>
-            <div
-              style={{
-                display: "flex",
-                gap: 24,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <Div>
               {AllProducts.filter((el) => el.bookmark === true).length > 0 ? (
                 AllProducts.filter((el) => el.bookmark === true)
                   .slice(0, 4)
                   .map((el) => <Card key={el.id} item={el} />)
               ) : (
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                  }}
+                >
                   <h3
                     style={{
                       borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
@@ -70,7 +69,7 @@ export default function Main() {
                   </h3>
                 </div>
               )}
-            </div>
+            </Div>
           </Section>
         </>
       )}

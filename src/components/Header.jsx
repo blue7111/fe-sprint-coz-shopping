@@ -42,8 +42,7 @@ export default function Header() {
             marginRight: 76,
             position: "relative",
           }}
-          onMouseEnter={() => setisOn(!isOn)}
-          onMouseLeave={() => setisOn(!isOn)}
+          onClick={() => setisOn(!isOn)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

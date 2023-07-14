@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updateProductsCurFilter,
@@ -36,6 +35,9 @@ const Img = styled.img`
   border-radius: 82px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: url(<path-to-image>), lightgray 50% / cover no-repeat, #d9d9d9;
+  &:hover {
+    border: 1px solid rgb(0, 0, 0);
+  }
 `;
 
 export default function FilterTab() {

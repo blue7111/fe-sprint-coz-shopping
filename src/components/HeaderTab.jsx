@@ -14,6 +14,10 @@ const Div = styled.div`
   padding-left: 30px;
   gap: 8px;
   background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #c1c1c1;
+  }
 `;
 
 export default function HeaderTab() {

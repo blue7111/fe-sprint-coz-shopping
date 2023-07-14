@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
 const Section = styled.section`
-  display: "flex";
+  display: flex;
   margin: auto;
   flex-direction: column;
-  justify-content: "center";
-  align-items: "center";
+  justify-content: center;
+  align-items: center;
   margin-top: 12px;
   margin-left: 76px;
   margin-right: 76px;
@@ -16,8 +16,8 @@ const Section = styled.section`
 
 const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 24px;
 `;
 
