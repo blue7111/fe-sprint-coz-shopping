@@ -3,6 +3,7 @@ import FilterTab from "../components/FilterTab";
 import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const Section = styled.section`
   display: "flex";
   margin: auto;
@@ -40,7 +41,7 @@ export default function Bookmark() {
       : data.filter((el) => el.type === filterTab && el.bookmark === true);
   const [page, setPage] = useState(12);
   const filterListPage = filterList.slice(0, page);
-
+  const { pathname } = useLocation();
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
 
@@ -48,6 +49,11 @@ export default function Bookmark() {
       setPage((prevPage) => prevPage + 4);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setPage(12);
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);

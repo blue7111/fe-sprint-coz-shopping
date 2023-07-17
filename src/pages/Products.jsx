@@ -3,6 +3,7 @@ import FilterTab from "../components/FilterTab";
 import { useSelector } from "react-redux";
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const Section = styled.section`
   display: flex;
   margin: auto;
@@ -37,6 +38,7 @@ export default function Products() {
     filterTab === "All" ? data : data.filter((el) => el.type === filterTab);
   const [page, setPage] = useState(12);
   const filterListPage = filterList.slice(0, page);
+  const { pathname } = useLocation();
 
   const handleScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
@@ -52,6 +54,11 @@ export default function Products() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setPage(12);
+  }, [pathname]);
   return (
     <Section>
       <FilterTab />

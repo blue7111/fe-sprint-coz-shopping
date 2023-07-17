@@ -2,7 +2,8 @@ import Card from "../components/Card";
 import Loding from "../components/Loding";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 const H2 = styled.h2`
   font-size: 24px;
   font-style: normal;
@@ -29,6 +30,11 @@ const Div = styled.div`
 export default function Main() {
   const isLoding = useSelector((state) => state.Loding.value);
   const AllProducts = useSelector((state) => state.AllProducts.value);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <>
       {isLoding ? (
